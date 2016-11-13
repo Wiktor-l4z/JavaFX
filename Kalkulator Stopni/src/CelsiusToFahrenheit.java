@@ -11,8 +11,8 @@ public class CelsiusToFahrenheit extends JFrame implements ActionListener {
     private JButton bKonwertuj;
     private double tempCelsius, tempFahrenheit;
     private JCheckBox chWielkie;
-    private ButtonGroup bgRozmiar;
-    private JRadioButton rbMaly, rbSredni, rbDuzy;
+    private ButtonGroup stopnieGroup;
+    private JRadioButton ConF, FonC;
 
     public CelsiusToFahrenheit() {
 
@@ -38,35 +38,26 @@ public class CelsiusToFahrenheit extends JFrame implements ActionListener {
         tFahrenheit = new JTextField("");
         tFahrenheit.setBounds(170, 70, 150, 20);
         add(tFahrenheit);
+        tFahrenheit.addActionListener(this);
 
         bKonwertuj = new JButton("Konwertuj");
         bKonwertuj.setBounds(20, 100, 150, 20);
         add(bKonwertuj);
         bKonwertuj.addActionListener(this);
 
-        chWielkie = new JCheckBox("Wielkie Litery");
-        chWielkie.setBounds(250, 100, 150, 20);
-        add(chWielkie);
-        chWielkie.addActionListener(this);
+        stopnieGroup = new ButtonGroup();
+        ConF = new JRadioButton("Celsius on Feren");
+        ConF.setBounds(80, 200, 150, 20);
+        add(ConF);
+        ConF.addActionListener(this);
+        stopnieGroup.add(ConF);
+        ConF.isSelected();
 
-        bgRozmiar = new ButtonGroup();
-        rbDuzy = new JRadioButton("Duzy", true);
-        rbDuzy.setBounds(50, 150, 100, 20);
-        add(rbDuzy);
-        bgRozmiar.add(rbDuzy);
-        rbDuzy.addActionListener(this);
-
-        rbSredni = new JRadioButton("Sredni", true);
-        rbSredni.setBounds(150, 150, 100, 20);
-        add(rbSredni);
-        bgRozmiar.add(rbSredni);
-        rbSredni.addActionListener(this);
-
-        rbMaly = new JRadioButton("Maly", true);
-        rbMaly.setBounds(250, 150, 100, 20);
-        add(rbMaly);
-        bgRozmiar.add(rbMaly);
-        rbMaly.addActionListener(this);
+        FonC = new JRadioButton("Feren on Celsius");
+        FonC.setBounds(230, 200, 150, 20);
+        add(FonC);
+        FonC.addActionListener(this);
+        stopnieGroup.add(FonC);
 
 
     }
@@ -81,26 +72,33 @@ public class CelsiusToFahrenheit extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         Object zrodlo = e.getSource();
-        if (zrodlo == bKonwertuj || zrodlo == tCelsius) {
+        if (zrodlo == bKonwertuj)
+        {
+            if (ConF.isSelected())
+            {
+                tempCelsius = Double.parseDouble(tCelsius.getText());
+                tempFahrenheit = 32.0 + 9.0 / 5 * tempCelsius;
+                tFahrenheit.setText(String.valueOf(tempFahrenheit));
+            } else if (FonC.isSelected()) {
+                tempFahrenheit = Double.parseDouble(tFahrenheit.getText());
+                tempCelsius = (tempFahrenheit - 32.0) * (5.0 / 9.0);
+                tCelsius.setText(String.valueOf(tempCelsius));
+            }
+        }
+        if (zrodlo == tCelsius)
+        {
             tempCelsius = Double.parseDouble(tCelsius.getText());
             tempFahrenheit = 32.0 + 9.0 / 5 * tempCelsius;
             tFahrenheit.setText(String.valueOf(tempFahrenheit));
-        } else if (zrodlo == chWielkie) {
-            if (chWielkie.isSelected() == true) {
-                tFahrenheit.setFont(new Font("SansSerif", Font.BOLD, 18));
-            } else {
-                tFahrenheit.setFont(new Font("SansSerif", Font.PLAIN, 12));
-            }
-        } else if ( zrodlo == rbMaly){
-            tFahrenheit.setFont(new Font("SansSerif", Font.PLAIN, 13));
         }
-            else if ( zrodlo == rbSredni){
-            tFahrenheit.setFont(new Font("SansSerif", Font.PLAIN, 16));
-
-          } else if  (zrodlo == rbDuzy){
-        tFahrenheit.setFont(new Font("SansSerif", Font.PLAIN, 18));
-    }
-
-
+        else if (zrodlo == tFahrenheit) {
+            tempFahrenheit = Double.parseDouble(tFahrenheit.getText());
+            tempCelsius = (tempFahrenheit - 32.0) * (5.0 / 9.0);
+            tCelsius.setText(String.valueOf(tempCelsius));
+        }
     }
 }
+
+
+
+
