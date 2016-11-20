@@ -24,19 +24,20 @@ public class Controller {
 
     PreparedStatement pst = null;
     ResultSet rs = null;
-    Connection conn;
+    Connection conn = DbConnector();
 
     @FXML
     private void btnLoginAction() throws IOException {
 
         try {
-            String query = "select * from UserDatabase where Username=? Password=?";
+            String query = "select * from UserDatabase where Username=? AND Password=?";
 
             pst = conn.prepareStatement(query);
             pst.setString(1, txtUsername.getText());
             pst.setString(2, txtPassword.getText());
             rs = pst.executeQuery();
 
+            System.out.println(rs);
             if (rs.next()) {
                 lblMessage.setText("Login Successful");
             } else {
