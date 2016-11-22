@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,8 +20,10 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.*;
 
+// TODO ogarnac Menu.fxml akcje, dodawanie do bazy / refreshowanie bazy danych
 
 public class Controller {
+
 
 
     @FXML
@@ -52,7 +55,7 @@ public class Controller {
             if (rs.next()) {
                 lblMessage.setText("Login Successful");
                 //   ((Node)(lol.getSource())).getScene().getWindow().hide();
-                Parent parent = FXMLLoader.load(getClass().getResource("mojaApka.fxml"));
+                Parent parent = FXMLLoader.load(getClass().getResource("Menu.fxml"));
                 Stage stage = new Stage();
                 Scene scene = new Scene(parent);
                 stage.setScene(scene);
@@ -125,7 +128,7 @@ public class Controller {
         }
     }
 
-    public void Clearfields (){
+    public void Clearfields() {
         ID.clear();
         firstName.clear();
         lastName.clear();
@@ -134,6 +137,7 @@ public class Controller {
         PasswordText.clear();
 
     }
+
     @FXML
     private void LoginPanelAction() {
         try {
@@ -150,4 +154,38 @@ public class Controller {
         }
     }
 
+    @FXML
+    private void CreateButtonAction() {
+        try {
+            String query = "SELECT * FROM UserDatabase";
+            pst = conn.prepareStatement(query);
+            rs = pst.executeQuery();
+/*
+            while (rs.next()) {
+                data.add(new User(
+                        rs.getString("ID"),
+                        rs.getString("FirstName"),
+                        rs.getString("LastName"),
+                        rs.getString("Email"),
+                        rs.getString("Username"),
+                        rs.getString("Password")
+                ));
+                tableView.setItem(data);
+            }
+
+            */
+            pst.close();
+            rs.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+    @FXML
+    private void loadButtonAction() {
+    }
 }
