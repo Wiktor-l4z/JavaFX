@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import sun.rmi.runtime.Log;
 
 
 import java.awt.event.ActionEvent;
@@ -112,16 +113,27 @@ public class Controller {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setContentText("User has been created");
+            alert.setHeaderText(null);
             alert.showAndWait();
 
             pst.execute();
             pst.close();
+            Clearfields();
 
         } catch (Exception e) {
             LabeText.setText("Error");
         }
     }
 
+    public void Clearfields (){
+        ID.clear();
+        firstName.clear();
+        lastName.clear();
+        EmailText.clear();
+        LoginText.clear();
+        PasswordText.clear();
+
+    }
     @FXML
     private void LoginPanelAction() {
         try {
