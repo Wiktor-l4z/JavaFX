@@ -15,7 +15,7 @@ public class Main extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
 
         PreparedStatement pst = null;
 
@@ -28,10 +28,9 @@ public class Main extends Application {
     }
 
 
-
     public void CheckConnection() {
-     conn = Controller.DbConnector();
-         if ( conn == null) {
+        conn = Controller.DbConnector();
+        if (conn == null) {
             System.out.println("Connection Not Successful");
             System.exit(1);
         } else {

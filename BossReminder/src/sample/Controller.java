@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Label;
@@ -16,8 +17,6 @@ import javafx.stage.Stage;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.*;
-
-
 
 
 public class Controller {
@@ -35,7 +34,7 @@ public class Controller {
     PreparedStatement pst = null;
     ResultSet rs = null;
     Connection conn = DbConnector();
-    AnchorPane fields = new AnchorPane();
+
 
     @FXML
     private void btnLoginAction() throws IOException {
@@ -95,17 +94,13 @@ public class Controller {
         } catch (Exception e) {
             System.out.printf("NIE DZIALA");
         }
-
-
-
     }
 
-
-
     @FXML
-    private void CreateAccAction () throws IOException {
+    private void CreateAccAction() throws IOException {
         try {
-            String query = "INSERT INTO UserDatabase (ID, FirstName, LastName, Email, Username, Password ) VALUES (?,?,?,?,?,?)";
+            String query = "INSERT INTO UserDatabase (ID, FirstName, LastName, " +
+                    "Email, Username, Password ) VALUES (?,?,?,?,?,?)";
             pst = conn.prepareStatement(query);
             pst.setString(1, ID.getText());
             pst.setString(2, firstName.getText());
@@ -114,19 +109,18 @@ public class Controller {
             pst.setString(5, LoginText.getText());
             pst.setString(6, PasswordText.getText());
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setContentText("User has been created");
+            alert.showAndWait();
+
             pst.execute();
             pst.close();
 
-
         } catch (Exception e) {
             LabeText.setText("Error");
-
         }
-        fields.getChildren().addAll(ID, firstName, lastName, EmailText, LoginText,PasswordText);
-
-
     }
-
 
     @FXML
     private void LoginPanelAction() {
