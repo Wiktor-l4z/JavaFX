@@ -7,59 +7,59 @@
 <?import javafx.scene.control.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <top>
-      <VBox>
-         <children>
-            <MenuBar prefHeight="0.0" prefWidth="600.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <HBox spacing="10.0">
-               <children>
-                  <TextField id="usernameButton" fx:id="tfName" promptText="username" />
-                  <TextField fx:id="tfPassword" promptText="password" />
-                  <Region style="-fx-background-color: #76086d;" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" text="Log In" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-               </padding>
-            </HBox>
-         </children>
-      </VBox>
-   </top>
-   <bottom>
-      <HBox BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Label" />
-         </children>
-      </HBox>
-   </bottom>
-   <center>
-      <TableView BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn prefWidth="146.0" text="Monster" />
-          <TableColumn minWidth="4.0" prefWidth="111.0" text="Date time" />
-            <TableColumn prefWidth="129.0" text="Prediction date" />
-        </columns>
-      </TableView>
-   </center>
+    <top>
+        <VBox>
+            <children>
+                <MenuBar prefHeight="0.0" prefWidth="600.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <HBox spacing="10.0">
+                    <children>
+                        <TextField id="usernameButton" fx:id="tfName" promptText="username" />
+                        <TextField fx:id="tfPassword" promptText="password" />
+                        <Region style="-fx-background-color: #76086d;" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" text="Log In" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <bottom>
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Label" />
+            </children>
+        </HBox>
+    </bottom>
+    <center>
+        <TableView BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn prefWidth="146.0" text="Monster" />
+                <TableColumn minWidth="4.0" prefWidth="111.0" text="Date time" />
+                <TableColumn prefWidth="129.0" text="Prediction date" />
+            </columns>
+        </TableView>
+    </center>
 </BorderPane>
