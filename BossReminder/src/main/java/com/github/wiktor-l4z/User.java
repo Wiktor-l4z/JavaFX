@@ -1,11 +1,11 @@
-package sample;
+package main.java;
 
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class User {
-    
+
     public String getFirstName() {
         return firstName;
     }

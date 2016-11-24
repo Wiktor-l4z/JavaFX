@@ -1,4 +1,4 @@
-package sample;
+package main.java;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,7 +27,6 @@ public class RegisterController {
     PreparedStatement pst = null;
     ResultSet rs = null;
     Connection conn = Main.DbConnector();
-
 
     @FXML
     private void CreateAccAction() throws IOException {
@@ -64,27 +63,21 @@ public class RegisterController {
         EmailText.clear();
         LoginText.clear();
         PasswordText.clear();
-
-
     }
-
 
     @FXML
     private void LoginPanelAction() {
         try {
-            //  ((Node)(event.getSource())).getScene().getWindow().hide();
+
             Parent parent = FXMLLoader.load(getClass().getResource("Login.fxml"));
-            Stage stage = new Stage();
             Scene scene = new Scene(parent);
-            stage.setScene(scene);
-            stage.setTitle("Create New Account");
-            stage.show();
+            Main.stage.setScene(scene);
+            Main.stage.setTitle("Create New Account");
 
         } catch (Exception e) {
             System.out.printf("NIE DZIALA");
         }
     }
-
 
     @FXML
     private void initialize() {
