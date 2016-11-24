@@ -1,4 +1,4 @@
-package main.java;
+package com.github.wiktorl4z;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -69,7 +69,7 @@ public class RegisterController {
     private void LoginPanelAction() {
         try {
 
-            Parent parent = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
             Scene scene = new Scene(parent);
             Main.stage.setScene(scene);
             Main.stage.setTitle("Create New Account");

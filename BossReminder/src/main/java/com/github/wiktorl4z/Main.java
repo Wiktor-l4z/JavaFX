@@ -1,4 +1,4 @@
-package main.java;
+package com.github.wiktorl4z;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("/resources.views/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
         primaryStage.setTitle("Login From SQLite Database ");
         primaryStage.setScene(new Scene(root, 255, 200));
         primaryStage.show();

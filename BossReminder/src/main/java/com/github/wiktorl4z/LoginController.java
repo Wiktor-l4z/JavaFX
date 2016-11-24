@@ -1,4 +1,4 @@
-package main.java;
+package com.github.wiktorl4z;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -41,7 +41,7 @@ public class LoginController {
             System.out.println(rs);
             if (rs.next()) {
                 lblMessage.setText("Login Successful");
-                Parent parent = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+                Parent parent = FXMLLoader.load(getClass().getResource("/views/Menu.fxml"));
                 Scene scene = new Scene(parent);
                 Main.stage.setScene(scene);
                 Main.stage.setTitle("Create New Account");
@@ -60,8 +60,8 @@ public class LoginController {
     @FXML
     private void RegisterAccountAction() throws IOException {
         try {
-            //  ((Node)(event.getSource())).getScene().getWindow().hide();
-            Parent parent = FXMLLoader.load(getClass().getResource("Register.fxml"));
+
+            Parent parent = FXMLLoader.load(getClass().getResource("/views/Register.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(parent);
             stage.setScene(scene);

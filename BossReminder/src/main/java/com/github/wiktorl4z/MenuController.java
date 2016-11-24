@@ -1,5 +1,4 @@
-package main.java;
-
+package com.github.wiktorl4z;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -57,18 +56,15 @@ public class MenuController {
             pst.setString(4, Username1.getText());
             pst.setString(5, Password1.getText());
 
-
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
             alert1.setTitle("Information Dialog");
             alert1.setContentText("User has been created");
             alert1.setHeaderText(null);
             alert1.showAndWait();
 
-
             pst.execute();
             pst.close();
             Clearfields();
-
 
         } catch (Exception e) {
             labelText1.setText("Not Working@!");
@@ -77,7 +73,6 @@ public class MenuController {
 
     @FXML
     private void initialize(){
-
         ID2.setCellValueFactory(new PropertyValueFactory<UserMapper,String>("ID"));
         FirstName2.setCellValueFactory(new PropertyValueFactory<UserMapper,String>("firstName"));
         LastName2.setCellValueFactory(new PropertyValueFactory<UserMapper,String>("lastName"));

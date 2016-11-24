@@ -1,4 +1,4 @@
-package main.java;
+package com.github.wiktorl4z;
 
 
 import javafx.beans.property.SimpleStringProperty;
