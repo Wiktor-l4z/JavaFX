@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Main extends Application {
-    static Connection conn;
+    private static Connection conn;
     static Stage stage;
 
     @Override
@@ -20,11 +20,11 @@ public class Main extends Application {
         primaryStage.setTitle("Login From SQLite Database ");
         primaryStage.setScene(new Scene(root, 255, 200));
         primaryStage.show();
-        CheckConnection();
+
     }
 
     public static void CheckConnection() {
-        conn = DbConnector();
+        DbConnector();
         if (conn == null) {
             System.out.println("Connection Not Successful");
             System.exit(1);
@@ -34,15 +34,15 @@ public class Main extends Application {
     }
 
     public static Connection DbConnector() {
-        try {
-            Connection conn = null;
-            Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection("jdbc:sqlite:UserData.sqlite");
-            return conn;
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println(e);
+        if (conn==null) {
+            try {
+                Class.forName("org.sqlite.JDBC");
+                conn = DriverManager.getConnection("jdbc:sqlite:UserData.sqlite");
+            } catch (ClassNotFoundException | SQLException e) {
+                System.out.println(e);
+            }
         }
-        return null;
+        return conn;
     }
 
     public static void main(String[] args) {

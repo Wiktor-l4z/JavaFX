@@ -30,15 +30,20 @@ public class LoginController {
 
     @FXML
     private void btnLoginAction() throws IOException {
+        String u = txtUsername.getText().trim();
+        String p = txtPassword.getText();
+        if ( u == null || p == null || u.length() == 0 || p.trim().length() == 0 ) {
+            lblMessage.setText("Username or Password empty!");
+            return;
+        }
         try {
             String query = "select * from UserDatabase where Username=? AND Password=?";
 
             pst = conn.prepareStatement(query);
-            pst.setString(1, txtUsername.getText());
-            pst.setString(2, txtPassword.getText());
+            pst.setString(1, u);
+            pst.setString(2, p);
             rs = pst.executeQuery();
 
-            System.out.println(rs);
             if (rs.next()) {
                 lblMessage.setText("Login Successful");
                 Parent parent = FXMLLoader.load(getClass().getResource("/views/Menu.fxml"));
@@ -60,13 +65,11 @@ public class LoginController {
     @FXML
     private void RegisterAccountAction() throws IOException {
         try {
-
             Parent parent = FXMLLoader.load(getClass().getResource("/views/Register.fxml"));
-            Stage stage = new Stage();
             Scene scene = new Scene(parent);
-            stage.setScene(scene);
-            stage.setTitle("Create New Account");
-            stage.show();
+            Main.stage.setScene(scene);
+            Main.stage.setTitle("Create New Account");
+            Main.stage.show();
             System.out.printf("Gratuluje!");
         } catch (Exception e) {
             System.out.printf("NIE DZIALA");

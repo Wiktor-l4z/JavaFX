@@ -1,0 +1,10 @@
+.root {
+    -fx-base: #323232;
+    -fx-background: #303030;
+    -fx-control-inner-background: #323232
+
+}
+.text-input {
+    -fx-prompt-text-fill: rgba(255, 255, 240, 0.79);
+}
+
