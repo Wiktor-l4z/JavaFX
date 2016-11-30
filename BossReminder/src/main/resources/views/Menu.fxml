@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../styles/wiktorfx.css"  minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.wiktorl4z.MenuController">
+<AnchorPane fx:id="ComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/wiktorfx.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.wiktorl4z.MenuController">
    <children>
       <TextField fx:id="firstName1" layoutX="26.0" layoutY="90.0" prefHeight="25.0" prefWidth="109.0" promptText="FirstName" />
       <TextField fx:id="LastName1" layoutX="26.0" layoutY="123.0" prefHeight="25.0" prefWidth="109.0" promptText="LastName" />
@@ -28,5 +28,6 @@
         </columns>
       </TableView>
       <Label fx:id="labelText1" layoutX="26.0" layoutY="14.0" prefHeight="17.0" prefWidth="333.0" textFill="#eb0a0a" />
+      <ComboBox fx:id="ComboBoxFirstName" layoutX="118.0" layoutY="336.0" onAction="#fillComboBox" prefWidth="150.0" />
    </children>
 </AnchorPane>

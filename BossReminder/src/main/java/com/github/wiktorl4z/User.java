@@ -38,6 +38,7 @@ public class User {
         this.password = password;
         this.ID = ID;
     }
+
     private String firstName;
     private String lastName;
     private String email;
