@@ -1,18 +1,14 @@
-package com.github.wiktorl4z;
+package com.github.wiktorl4z.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.github.wiktorl4z.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-
 
 public class RegisterController {
 
@@ -25,7 +21,7 @@ public class RegisterController {
 
 
     PreparedStatement pst = null;
-    ResultSet rs = null;
+    ResultSet rs;
     Connection conn = Main.DbConnector();
 
     @FXML
@@ -40,23 +36,20 @@ public class RegisterController {
             pst.setString(4, EmailText.getText());
             pst.setString(5, LoginText.getText());
             pst.setString(6, PasswordText.getText());
-
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setContentText("User has been created");
             alert.setHeaderText(null);
             alert.showAndWait();
-
             pst.execute();
             pst.close();
-            Clearfields();
-
+            clearFields();
         } catch (Exception e) {
             LabelText.setText("Error");
         }
     }
 
-    public void Clearfields() {
+    public void clearFields() {
         ID.clear();
         firstName.clear();
         lastName.clear();
@@ -68,12 +61,10 @@ public class RegisterController {
     @FXML
     private void LoginPanelAction() {
         try {
-
             Parent parent = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
             Scene scene = new Scene(parent);
             Main.stage.setScene(scene);
             Main.stage.setTitle("Create New Account");
-
         } catch (Exception e) {
             System.out.printf("NIE DZIALA");
         }

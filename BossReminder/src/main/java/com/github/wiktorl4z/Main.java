@@ -1,17 +1,21 @@
 package com.github.wiktorl4z;
 
+import com.github.wiktorl4z.models.UserDataBase;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Main extends Application {
     private static Connection conn;
-    static Stage stage;
+    public static Stage stage;
+
+    public static UserDataBase userDataBase;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -30,11 +34,12 @@ public class Main extends Application {
             System.exit(1);
         } else {
             System.out.println("Connection Successful");
+            userDataBase = new UserDataBase();
         }
     }
 
     public static Connection DbConnector() {
-        if (conn==null) {
+        if (conn == null) {
             try {
                 Class.forName("org.sqlite.JDBC");
                 conn = DriverManager.getConnection("jdbc:sqlite:UserData.sqlite");
@@ -48,5 +53,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         CheckConnection();
         launch(args);
+
     }
 }

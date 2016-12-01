@@ -7,13 +7,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="222.0" prefWidth="248.0" stylesheets="@../styles/wiktorfx.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.wiktorl4z.LoginController">
+<AnchorPane prefHeight="222.0" prefWidth="248.0" stylesheets="@../styles/wiktorfx.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.wiktorl4z.controllers.LoginController">
     <children>
-        <TextField fx:id="txtUsername" layoutX="39.0" layoutY="86.0" prefHeight="25.0" prefWidth="182.0" promptText="Username" />
-        <Button fx:id="LoginButton" layoutX="37.0" layoutY="154.0" mnemonicParsing="false" onAction="#btnLoginAction" prefHeight="25.0" prefWidth="89.0" text="Login" />
-        <PasswordField fx:id="txtPassword" layoutX="39.0" layoutY="119.0" prefHeight="25.0" prefWidth="182.0" promptText="Password" />
+        <TextField fx:id="tfUsername" layoutX="39.0" layoutY="86.0" prefHeight="25.0" prefWidth="182.0" promptText="Username" />
+        <Button fx:id="loginButton" layoutX="37.0" layoutY="154.0" mnemonicParsing="false" onAction="#btnLoginAction" prefHeight="25.0" prefWidth="89.0" text="Login" />
+        <PasswordField fx:id="tfPassword" layoutX="39.0" layoutY="119.0" prefHeight="25.0" prefWidth="182.0" promptText="Password" />
         <Label fx:id="lblMessage" blendMode="DIFFERENCE" layoutX="37.0" layoutY="55.0" prefHeight="17.0" prefWidth="182.0" textFill="#f80314" />
-      <Button fx:id="LoginButton1" layoutX="130.0" layoutY="154.0" mnemonicParsing="false" onAction="#RegisterAccountAction" prefHeight="25.0" prefWidth="89.0" text="Create Acc" />
+      <Button fx:id="registerButton" layoutX="130.0" layoutY="154.0" mnemonicParsing="false" onAction="#RegisterAccountAction" prefHeight="25.0" prefWidth="89.0" text="Create Acc" />
     </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

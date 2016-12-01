@@ -1,8 +1,8 @@
-package com.github.wiktorl4z;
+package com.github.wiktorl4z.models.mappers;
 
 
+import com.github.wiktorl4z.models.User;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
 public class UserMapper {
 
